@@ -9,7 +9,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cin >> ch;
-        sum += ch - 48;
+        sum += ch - '0';
     }
     cout << sum << endl;
     return 0;
