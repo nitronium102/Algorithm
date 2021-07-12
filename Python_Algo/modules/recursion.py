@@ -15,3 +15,8 @@ def perm(c, k, v, s):
 v = input("list = ").split()
 k = int(input("k = "))
 perm(0, k, v, tuple())
+
+from itertools import permutations
+print("="*30)
+for t in permutations(v, k):
+    print(t)
