@@ -1,22 +1,37 @@
 #-*-coding:utf-8-*-
-from itertools import combinations
+from bisect import bisect_left
 
 L, K, C = map(int, input().split())
 cuts = list(map(int, input().split()))
-cuts.sort()
+# add [0, L] into cust list for convinient search
+cuts = [0, L]
 
-glongest = L
-gfirst = L
-for c in combinations(cuts, C):
-	longest = c[0]
-	first = c[0]
-	for i in range(C-1):
-		if c[i+1]-c[i] > longest: longest = c[i+1]-c[i]
-	if L-c[-1] > longest: longest = L-c[-1]
-	if glongest > longest:
-		glongest = longest
-		gfirst = first
-	elif glongest == longest and gfirst > first:
-		gfirst = first
+def isPass(cuts, longest, c):
+    cur = cuts[-1] # current position
+    while c>0: # can cut
+        f = cur - longest
+        if f <= 0:
+            return True, cuts[1] # firstcut = cuts[1]
+        idx = bisect_left(cuts, f)
+        if cur == idx: # cannot cut
+            return False, 0
+        c -= 1
+    if cur > longest:
+        return False, 0
+    return True, cur
 
-print(glongest, gfirst)
+# binary search
+left, right = 0, L
+firstCut = L
+while left + 1 < right:
+    mid = (left+right)//2
+    r, fc = isPass(cuts, mid, C)
+    if r:
+        right = mid
+        firstCut = fc
+    else :
+        left = mid
+
+print(right, firstCut)
+
+
