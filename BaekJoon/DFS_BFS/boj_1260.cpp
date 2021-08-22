@@ -49,7 +49,7 @@ void BFS(int v){
 }
 
 int main(){
-  queue<int> q;
+  queue<int> q; // BFS용
   cin >> N >> M >> V;
 
   for (int i=0; i<M; i++){
