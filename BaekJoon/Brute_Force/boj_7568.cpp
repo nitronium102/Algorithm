@@ -21,7 +21,7 @@ int main(){
     for (int j=0; j<n; j++){
       x2 = v[j].first;
       y2 = v[j].second;
-      if (x1 > x2 && y1 > y2)
+      if (x1 < x2 && y1 < y2)
         cnt++;
     }
     cout << cnt << " ";
