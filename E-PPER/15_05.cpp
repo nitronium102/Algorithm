@@ -12,7 +12,10 @@ string solution(string input){
 	for (int i=0; i<input.length() - 1; i++){
 		if (input[i] != input[i+1]){
 			//answer += (char)(cnt+65);
-			answer += 'A'+cnt;
+			if (cnt >= 26)
+				answer += 'Z';
+			else 
+				answer += 'A'+cnt;
 			cnt = 0;
 		}
 		else {
