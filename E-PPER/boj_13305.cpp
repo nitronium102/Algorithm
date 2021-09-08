@@ -5,7 +5,7 @@ using namespace std;
 
 long long solution(int city, vector<int> distance, vector<int> price){
   long long totalPrice = 0;
-  long long minCost = price[0];
+  long long minCost = price[0]; // 최소 비용
 
   for (int i=0; i<city-1; i++){
     if (minCost > price[i]){
