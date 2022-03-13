@@ -8,17 +8,15 @@
 using namespace std;
 
 int solution(vector<int> &time, int n){
-    int sum = 0, answer = 0;
+    int sum = 0;
 
     sort(time.begin(), time.end());
 
-    // 0번째 사람 : 0번째 사람의 인출 시간
-    // 1번째 사람 : 0번째 사람의 인출 시간 + 1번째 사람의 인출 시간
-    // 2번째 사람 : 0번째 사람의 인출 시간 + 1번째 사람의 인출 시간 + 2번째 사람의 인출 시간
-    // sum = i번째 사람의 인출 시간 * 대기 시간의 반복 수(n-i)
-    for (int i=0; i<n; i++){
-        sum += answer * (n-i);
-    }
+    // 첫 번째 사람 : time[0]
+    // 두 번째 사람 : time[0] + time[1]
+    // time[i] * (n-i)
+    for (int i=0; i<n; i++)
+        sum += time[i] * (n-i);
 
     return sum;
 }
