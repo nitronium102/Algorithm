@@ -8,6 +8,9 @@ using namespace std;
 typedef pair<int, int> ci;
 
 int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
     int N, height;
     stack<ci> s;
 
