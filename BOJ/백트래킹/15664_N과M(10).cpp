@@ -1,4 +1,4 @@
-// 실버2
+t// 실버2
 // Created by KangMinji on 2023-01-23.
 // https://www.acmicpc.net/problem/15664
 
