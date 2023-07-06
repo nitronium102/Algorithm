@@ -16,7 +16,7 @@ const int FLOWER = 3;
 int n, m, g, r;
 int board[51][51];
 vector<ci> candidate;
-int mask[10];
+int mask[11];
 
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
@@ -52,13 +52,13 @@ int backtracking(int csize) {
 				// 1) 해당 칸이 비어있는 경우
 				state[nx][ny] = {time+1, color};
 				q.push({nx, ny});
-			} else if (state[nx][ny].second == GREEN) {
+			} else if (state[nx][ny].second == RED) {
 				// 2) 해당 칸이 빨간색인 경우
 				if (color == GREEN && state[nx][ny].first == time + 1){
 					state[nx][ny].second = FLOWER;
 					flower_cnt++;
 				}
-			} else if (state[nx][ny].second == RED) {
+			} else if (state[nx][ny].second == GREEN) {
 				// 3) 해당 칸이 초록색인 경우
 				if (color == RED && state[nx][ny].first == time + 1) {
 					state[nx][ny].second = FLOWER;
@@ -70,7 +70,6 @@ int backtracking(int csize) {
 	return flower_cnt;
 }
 
-// 초록색과 빨간색이 동일한 시간에 도달한 경우 꽃 생성되고 배양액 X
 int main() {
 	// 시간
 	ios_base::sync_with_stdio(false);
@@ -86,7 +85,7 @@ int main() {
 		}
 	}
 
-	// 배양액 뿌릴 수 있는 곳 중 4개 뽑아서 돌리기
+	// 배양액 뿌릴 수 있는 곳 중 배양액 개수만큼 돌리기
 	int csize = candidate.size();
 	fill(mask + csize - g - r, mask + csize - r, GREEN);
 	fill(mask + csize - r, mask + csize, RED);
