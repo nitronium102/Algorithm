@@ -1,4 +1,4 @@
-// 프로그래밍5: [E-PPER]1507,1607-도서관 좌석 예약 
+// 프로그래밍5: [폴더_E-PPER]1507,1607-도서관 좌석 예약
 #include <iostream>
 #include <vector>
 #include <algorithm> // sort -> greedy

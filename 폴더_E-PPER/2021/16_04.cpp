@@ -1,4 +1,4 @@
-// 프로그래밍4: [E-PPER]1109,1606-올바른괄호배열 
+// 프로그래밍4: [폴더_E-PPER]1109,1606-올바른괄호배열
 #include <iostream>
 using namespace std;
 

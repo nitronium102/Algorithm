@@ -54,8 +54,8 @@ int main() {
 	long long answer = 0;
 	for (int i = 0; i < suba.size(); i++) {
 		int diff = t - suba[i];
-		auto high = upper_bound(subb.begin(), subb.end(), diff); // k값 초과
-		auto low = lower_bound(subb.begin(), subb.end(), diff); // k값 이상
+		auto high = upper_bound(subb.begin(), subb.end(), diff); // diff값 초과하는 첫 번째 원소의 위치
+		auto low = lower_bound(subb.begin(), subb.end(), diff); // diff보다 크거나 같은 첫 번째 원소의 위치
 		answer += (high - low);
 
 	}
